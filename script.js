@@ -14,23 +14,23 @@ fetch("https://open.exchangerate-api.com/v6/latest")
     })
 
 function swapCurrency() {
+
 let temp = fromCurrency.value;
 fromCurrency.value = toCurrency.value;
 toCurrency.value = temp;
-divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value / rate} ${toCurrency.value}`
+rate = 1/rate;
+divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
 }
 function calculateConvertedCurrency(rate) {
     
     divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
 }
 
-function validateAmount() {
-    
-}
+
 
 
 function convertCurrency() {
-        
+        calculateConvertedCurrency(rate);
     }
    
 

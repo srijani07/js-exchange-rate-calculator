@@ -6,7 +6,7 @@ const btnSwap = document.querySelector("#btn-swap");
 const btnConvert = document.querySelector("#btn-convert");
 const divOutput = document.querySelector("#div-output");
 
-var rate;
+let rate;
 fetch("https://open.exchangerate-api.com/v6/latest")
     .then(response => response.json())
     .then(result => {
@@ -33,6 +33,6 @@ function convertCurrency() {
         calculateConvertedCurrency(rate);
     }
    
-
+    calculateConvertedCurrency(rate);
 btnConvert.addEventListener("click", convertCurrency);
 btnSwap.addEventListener("click", swapCurrency);

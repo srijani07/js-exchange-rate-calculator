@@ -33,6 +33,6 @@ function convertCurrency() {
         calculateConvertedCurrency(rate);
     }
    
-    calculateConvertedCurrency(rate);
+
 btnConvert.addEventListener("click", convertCurrency);
 btnSwap.addEventListener("click", swapCurrency);

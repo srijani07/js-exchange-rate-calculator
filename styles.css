@@ -1,0 +1,25 @@
+* {
+    text-align : center;
+    font-family: monospace;
+}
+
+label {
+    display : block;
+    margin-top : 2rem;
+}
+
+button {
+    display : block;
+    margin : auto;
+    margin-top : 2rem;
+}
+
+
+#div-output {
+    margin-top  : 4rem;
+    font-size : xx-large
+}
+
+select {
+    padding : 0rem 0.5rem;
+}

@@ -36,3 +36,4 @@ function convertCurrency() {
    
 btnConvert.addEventListener("click", convertCurrency);
 btnSwap.addEventListener("click", swapCurrency);
+inputAmount.addEventListener("input", convertCurrency);

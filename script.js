@@ -1,7 +1,6 @@
 const inputAmount = document.querySelector("#input-amount");
 const fromCurrency = document.querySelector("#currency-from-select");
 const toCurrency = document.querySelector("#currency-to-select");
-
 const btnSwap = document.querySelector("#btn-swap");
 const btnConvert = document.querySelector("#btn-convert");
 const divOutput = document.querySelector("#div-output");
@@ -14,18 +13,17 @@ fetch("https://open.exchangerate-api.com/v6/latest")
     })
 
 function swapCurrency() {
-if(count > 0) {
-    let temp = fromCurrency.value;
-    fromCurrency.value = toCurrency.value;
-    toCurrency.value = temp;
-    rate = 1/rate;
-    divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
+    if(count > 0) {
+        let temp = fromCurrency.value;
+        fromCurrency.value = toCurrency.value;
+        toCurrency.value = temp;
+        rate = 1/rate;
+        divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
 }
 }
 
 function calculateConvertedCurrency(rate) {
-    
-    divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
+     divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
 }
 
 

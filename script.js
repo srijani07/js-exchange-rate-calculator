@@ -29,10 +29,7 @@ function calculateConvertedCurrency(rate) {
 }
 
 
-
-
 function convertCurrency() {
-        serverCall();
         if(Number(inputAmount.value)<=0 || isNaN(inputAmount.value) === true) {
             divOutput.innerText = "Please enter an appropriate input."
         }
@@ -45,5 +42,9 @@ function convertCurrency() {
 serverCall();
 btnSwap.addEventListener("click", swapCurrency);
 inputAmount.addEventListener("input", convertCurrency);
-fromCurrency.addEventListener("change", convertCurrency);
-toCurrency.addEventListener("change", convertCurrency);
+fromCurrency.addEventListener("change", () => {
+    serverCall();
+    convertCurrency()});
+toCurrency.addEventListener("change", () => {
+    serverCall();
+    convertCurrency()});

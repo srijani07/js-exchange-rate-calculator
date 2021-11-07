@@ -4,13 +4,16 @@ const toCurrency = document.querySelector("#currency-to-select");
 const btnSwap = document.querySelector("#btn-swap");
 const divOutput = document.querySelector("#div-output");
 
-let rate, count = 0;
-fetch("https://open.exchangerate-api.com/v6/latest")
+let rate;
+
+function serverCall() {
+    fetch("https://open.exchangerate-api.com/v6/latest")
     .then(response => response.json())
     .then(result => {
         rate = result.rates[toCurrency.value]/result.rates[fromCurrency.value];
         divOutput.innerText = `${inputAmount.value} ${fromCurrency.value} = ${inputAmount.value * rate} ${toCurrency.value}`
     })
+}
 
 function swapCurrency() {
         let temp = fromCurrency.value;
@@ -29,6 +32,7 @@ function calculateConvertedCurrency(rate) {
 
 
 function convertCurrency() {
+        serverCall();
         if(Number(inputAmount.value)<=0 || isNaN(inputAmount.value) === true) {
             divOutput.innerText = "Please enter an appropriate input."
         }
@@ -38,6 +42,8 @@ function convertCurrency() {
     }
 }
    
-
+serverCall();
 btnSwap.addEventListener("click", swapCurrency);
 inputAmount.addEventListener("input", convertCurrency);
+fromCurrency.addEventListener("change", convertCurrency);
+toCurrency.addEventListener("change", convertCurrency);
